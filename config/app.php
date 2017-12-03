@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Calendar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Calendar\Providers\AppServiceProvider::class,
+        Calendar\Providers\AuthServiceProvider::class,
+        // Calendar\Providers\BroadcastServiceProvider::class,
+        Calendar\Providers\EventServiceProvider::class,
+        Calendar\Providers\RouteServiceProvider::class,
 
     ],
 
