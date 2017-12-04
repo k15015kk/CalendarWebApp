@@ -48,3 +48,12 @@ body {
     color: #000;
     font-size: 36px;
 }
+
+.calendar-day:hover {
+    background: #64FFDA;
+}
+
+.calendar-day-nothing {
+    flex: 1;
+    margin: 4px;
+}

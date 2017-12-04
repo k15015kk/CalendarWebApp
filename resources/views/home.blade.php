@@ -39,9 +39,14 @@
                 @for ($i = 0; $i < 6; $i++)
                 <div class="calendar-row">
                     @for ($j = 0; $j < 7; $j++)
+                        <?php $day = $date[($i * 7) + $j] ?>
+                        @if (($i == 0 and $day > 8) or ($i >= 4 and $day < 8))
+                        <div class="calendar-day-nothing"></div>
+                        @else
                         <div class="calendar-day">
                             <p class="day">{{$date[($i * 7) + $j]}}</p>
                         </div>
+                        @endif
                     @endfor
                 </div>
                 @endfor
