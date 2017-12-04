@@ -4,6 +4,38 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.monthChooseArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.backButton,.nextButton {
+    padding: 4px 16px;
+    margin: 8px;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.backButton:hover,.nextButton:hover {
+    border-radius: 2px;
+    background: #64FFDA;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.nowMonthText,.backText,.nextText {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+
+.nowMonthText {
+    padding: 4px;
+    margin: 16px;
+}
+
 .calendar-header,.calendar-row {
     display: flex;
     flex-direction: row;
@@ -51,9 +83,19 @@ body {
 
 .calendar-day:hover {
     background: #64FFDA;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
 .calendar-day-nothing {
     flex: 1;
     margin: 4px;
+}
+
+.calendar-day-today {
+    background: #E040FB;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.today {
+    color: #fff;
 }

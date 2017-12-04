@@ -48,9 +48,9 @@ class HomeController extends Controller
             $calendar_day -> addDay();
         }
 
-        // 表示月を格納
-        $dm = $dt -> month;
+        // 月始まりの日
+        $month_first_day = new Carbon($dt->year . '-' . $dt->month . '-01');
 
-        return view('home',compact('date','dm'));
+        return view('home',compact('date','dt','month_first_day'));
     }
 }
