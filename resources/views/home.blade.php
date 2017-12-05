@@ -10,13 +10,13 @@
 
     <div class="monthChooseArea">
         <div class="backButton">
-            <p class="backText">前月</p>
+            <a href="/home/{{$back_month_dt -> year}}/{{str_pad($back_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
         </div>
         <div class="nowMonth">
-            <h1 class="nowMonthText">2017/12</h1>
+            <h1 class="nowMonthText">{{$month_first_day -> year}}/{{str_pad($month_first_day -> month, 2, 0, STR_PAD_LEFT)}}</h1>
         </div>
         <div class="nextButton">
-            <p class="nextText">次月</p>
+            <a href="/home/{{ $next_month_dt -> year}}/{{ str_pad($next_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="nextText">Next</a>
         </div>
     </div>
 
@@ -50,14 +50,14 @@
                     @for ($j = 0; $j < 7; $j++)
                         <?php $day = $date[($i * 7) + $j];
                         ?>
-                        @if (($i == 0 and $day > 8) or ($i >= 4 and $day < 8))
+                        @if (($i == 0 and $day > 8) or ($i >= 4 and $day < 15))
                         <div class="calendar-day-nothing"></div>
                         @elseif ($month_first_day -> year == $dt -> year and $month_first_day -> month == $dt -> month and $dt -> day == $day)
                         <div class="calendar-day calendar-day-today">
                             <p class="day today">{{$date[($i * 7) + $j]}}</p>
                         </div>
                         @else
-                        <div class="calendar-day" id="{{ $month_first_day -> year . $month_first_day->month . $day }}">
+                        <div class="calendar-day" id="{{str_pad($month_first_day -> year ,4, 0, STR_PAD_LEFT) . str_pad($month_first_day -> month, 2, 0, STR_PAD_LEFT) . str_pad($day, 2, 0, STR_PAD_LEFT)}}">
                             <p class="day">{{$date[($i * 7) + $j]}}</p>
                         </div>
                         @endif

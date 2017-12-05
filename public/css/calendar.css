@@ -4,16 +4,20 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.navbar,.nabvar-default {
+    margin: 0;
+}
+
 .monthChooseArea {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 .backButton,.nextButton {
-    padding: 4px 16px;
-    margin: 8px;
     border-radius: 2px;
     background: #fff;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -21,7 +25,7 @@ body {
 
 .backButton:hover,.nextButton:hover {
     border-radius: 2px;
-    background: #64FFDA;
+    background: #A7FFEB;
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -32,8 +36,20 @@ body {
 }
 
 .nowMonthText {
-    padding: 4px;
+    padding: 4px 16px;
     margin: 16px;
+}
+
+.backText,.nextText {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+}
+
+.backText:hover,.nextText:hover {
+    text-decoration: none;
+    color: #000;
 }
 
 .calendar-header,.calendar-row {
@@ -46,7 +62,7 @@ body {
     text-align: center;
     flex: 1;
     height: 24px;
-    background: #E0E0E0;
+    background: #A7FFEB;
     margin: 4px;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -70,7 +86,7 @@ body {
 .calendar-day {
     flex: 1;
     text-align: center;
-    height: 120px;
+    height: 80px;
     background: #fff;
     margin: 4px;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -78,12 +94,17 @@ body {
 
 .day {
     color: #000;
-    font-size: 36px;
+    font-size: 24px;
 }
 
-.calendar-day:hover {
-    background: #64FFDA;
+div.calendar-day:hover {
+    background: #A7FFEB;
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.calendar-day:hover > p
+{
+    color: #000;
 }
 
 .calendar-day-nothing {
@@ -98,4 +119,53 @@ body {
 
 .today {
     color: #fff;
+}
+
+.scheduleDisplayArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 48px;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.scheduleTime {
+    width: 60px;
+    height: 1440px;
+    background: #009688;
+    text-align: right;
+}
+
+.time {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    height: 59px;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 100%;
+    font-size: 12px;
+    color: #fff;
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    border-top-color: #fff;
+}
+
+.scheduleList {
+    width: 1280px;
+    height: 1440px;
+    background: #fff;
+}
+
+.scheduleSTD {
+    background: #E1BEE7;
+    width: 320px;
+    margin-left: 16px;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.planText {
+    padding: 4px 16px;
+    font-size: 16px;
+    color: #000;
 }

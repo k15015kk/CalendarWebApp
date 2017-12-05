@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home/{year}/{month}', 'HomeController@calendar')->where('yearmonth', '[0-9]+');
+
+Route::get('/home/{date}','HomeController@datepicker')->where('date', '[0-9]+');

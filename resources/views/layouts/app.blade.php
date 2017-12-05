@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
 </head>
 <body>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/calendarscript.js') }}"></script>
+
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
 
@@ -74,9 +80,5 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.2.1.min,js') }}"></script>
 </body>
 </html>
