@@ -99,13 +99,6 @@
         </nav>
 
         @yield('content')
-
-        <footer>
-            <div class="addButtonArea">
-                <button class="addButton" onclick="location.href = '/home/add'"><p>+</p></button>
-            </div>
-
-        </footer>
     </div>
 </body>
 </html>

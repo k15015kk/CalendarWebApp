@@ -87,7 +87,12 @@
                 </div>
             </div>
         </div>
-
+        
+        <div class="addButtonArea">
+            <button class="addButton" onclick="location.href = '/home/add'">
+                <p>+</p>
+            </button>
+        </div>
     </div>
 
 @endsection

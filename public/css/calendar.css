@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-.monthChooseArea {
+.chooseArea {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -29,13 +29,13 @@ body {
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-.nowMonthText,.backText,.nextText {
+.nowMonthText,.nowDayText,.backText,.nextText {
     padding: 0;
     margin: 0;
     font-weight: 700;
 }
 
-.nowMonthText {
+.nowMonthText,.nowDayText {
     padding: 4px 16px;
     margin: 16px;
 }
@@ -137,10 +137,10 @@ div.calendar-day:hover {
 }
 
 .time {
-    display: inline-block;
+    display: block;
     padding: 0;
     margin: 0;
-    height: 59px;
+    height: 60px;
     padding-left: 4px;
     padding-right: 4px;
     width: 100%;
@@ -158,16 +158,24 @@ div.calendar-day:hover {
 }
 
 .scheduleSTD {
-    background: #E1BEE7;
-    width: 320px;
+    direction: block;
+    position: absolute;
+    background: #BA68C8;
+    width: auto;
     margin-left: 16px;
+}
+
+.scheduleSTD:hover {
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-.planText {
+
+.planText,.planTime {
+    display: inline-block;
+    position: relative;
     padding: 4px 16px;
     font-size: 16px;
-    color: #000;
+    color: #fff;
 }
 
 .weeklyDateArea,.weeklyPlansArea {
@@ -227,17 +235,11 @@ div.calendar-day:hover {
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-footer {
+.addButtonArea {
     display: block;
     position: fixed;
     bottom: 48px;
     right: 48px;
-
-}
-
-.addButtonArea {
-    display: block;
-    position: relative;
 }
 
 .addButton {
@@ -272,4 +274,18 @@ footer {
 
 .addButton:hover > p {
     color: #E040FB;
+}
+
+.addContentArea {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.addPageTitle {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.formTitle {
+    font-size: 24px;
 }

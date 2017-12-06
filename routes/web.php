@@ -30,3 +30,7 @@ Route::get('/home/week','HomeController@week');
 Route::get('/home/day','HomeController@day');
 
 Route::get('/home/day/{date}','HomeController@day')->where('date', '[0-9]+');
+
+Route::get('/home/add','HomeController@add');
+
+Route::post('/home/addSchedule','HomeController@addSchedule');

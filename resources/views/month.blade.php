@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    <div class="monthChooseArea">
+    <div class="chooseArea">
         <div class="backButton">
             <a href="/home/month/{{$back_month_dt -> year}}/{{str_pad($back_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
         </div>
@@ -67,5 +67,9 @@
            </div>
        </div>
     </div>
+
+    <div class="addButtonArea">
+                <button class="addButton" onclick="location.href = '/home/add'"><p>+</p></button>
+            </div>
 </div>
 @endsection

@@ -124,7 +124,7 @@ class HomeController extends Controller
         $dbname = "k15015kk";
         $dbname .= "Schedule";
 
-        $database = DB::table($dbname)->select('plan','startTime',"endTime")
+        $database = DB::table($dbname)->select('id','plan','startTime',"endTime")
         ->whereBetween('startTime',[$year.'-'.$month.'-'.$day.' 00:00:00',$year.'-'.$month.'-'.$day.' 23:59:00'])
         ->orWhereBetween('endTime',[$year.'-'.$month.'-'.$day.' 00:00:00',$year.'-'.$month.'-'.$day.' 23:59:00'])
         ->get();
@@ -154,14 +154,19 @@ class HomeController extends Controller
                 $displaypixel = 1440;
             }
 
-            $schedule_data[$count] = array('id' => $count,'plan' => $data->plan ,'start' => $start , 'end' => $end,'startPixel' => $startpixel,'displayPixel' => $displaypixel);
+            $dataid = $data -> id;
+
+            $schedule_data[$count] = array('id' => $dataid , 'plan' => $data->plan ,'start' => $start , 'end' => $end,'startPixel' => $startpixel,'displayPixel' => $displaypixel);
 
             $count = $count + 1;
         }
 
         $weekdisplay = $week[$date->dayOfWeek];
 
-        return view('daypick',compact('date','weekdisplay','schedule_data'));
+        $yesterday = $date -> copy() -> subDay();
+        $tomorrow = $date-> copy() -> addDay();
+
+        return view('daypick',compact('date','weekdisplay','schedule_data','yesterday','tomorrow'));
     }
 
     public function week (Request $request) {
@@ -199,5 +204,38 @@ class HomeController extends Controller
         ->get();
         
         return view('week');
+    }
+
+    public function add() {
+        $flag = false;
+        return view('add',compact('flag'));
+    }
+
+    public function addSchedule(Request $request) {
+        $plan = $request -> input('plan');
+        $start = $request -> input('start');
+        $end = $request -> input('end');
+
+        $flag = false;
+
+        if($plan and $start and $end) {
+
+            $dbname = "k15015kk";
+            $dbname .= "Schedule";
+            DB::table($dbname) -> insert([
+                'plan' => $plan,
+                'startTime' => $start,
+                'endTime' => $end
+            ]);
+
+            $startDate = new Carbon($start);
+            $redirect_directory = str_pad($startDate -> year ,4, 0, STR_PAD_LEFT) . str_pad($startDate -> month, 2, 0, STR_PAD_LEFT) . str_pad($startDate -> day, 2, 0, STR_PAD_LEFT);
+
+            return redirect('/home/day/'.$redirect_directory);
+
+        } else {
+            $flag = true;
+            return view('add',compact('flag'));
+        } 
     }
 }
