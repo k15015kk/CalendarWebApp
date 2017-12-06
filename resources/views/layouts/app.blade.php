@@ -60,6 +60,26 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="/home/month">
+                                            Month
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/home/week">
+                                            Week
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/home/3days">
+                                            3Days
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/home/day">
+                                            1Day
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -79,6 +99,13 @@
         </nav>
 
         @yield('content')
+
+        <footer>
+            <div class="addButtonArea">
+                <button class="addButton" onclick="location.href = '/home/add'"><p>+</p></button>
+            </div>
+
+        </footer>
     </div>
 </body>
 </html>

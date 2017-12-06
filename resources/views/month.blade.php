@@ -10,13 +10,13 @@
 
     <div class="monthChooseArea">
         <div class="backButton">
-            <a href="/home/{{$back_month_dt -> year}}/{{str_pad($back_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
+            <a href="/home/month/{{$back_month_dt -> year}}/{{str_pad($back_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
         </div>
         <div class="nowMonth">
             <h1 class="nowMonthText">{{$month_first_day -> year}}/{{str_pad($month_first_day -> month, 2, 0, STR_PAD_LEFT)}}</h1>
         </div>
         <div class="nextButton">
-            <a href="/home/{{ $next_month_dt -> year}}/{{ str_pad($next_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="nextText">Next</a>
+            <a href="/home/month/{{ $next_month_dt -> year}}/{{ str_pad($next_month_dt -> month, 2, 0, STR_PAD_LEFT)}} " class="nextText">Next</a>
         </div>
     </div>
 
@@ -52,7 +52,7 @@
                         ?>
                         @if (($i == 0 and $day > 8) or ($i >= 4 and $day < 15))
                         <div class="calendar-day-nothing"></div>
-                        @elseif ($month_first_day -> year == $dt -> year and $month_first_day -> month == $dt -> month and $dt -> day == $day)
+                        @elseif ($month_first_day -> year == $todayDate -> year and $month_first_day -> month == $todayDate -> month and $todayDate -> day == $day)
                         <div class="calendar-day calendar-day-today">
                             <p class="day today">{{$date[($i * 7) + $j]}}</p>
                         </div>

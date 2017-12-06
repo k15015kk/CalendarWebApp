@@ -19,6 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/{year}/{month}', 'HomeController@calendar')->where('yearmonth', '[0-9]+');
+Route::get('/home/month','HomeController@month');
 
-Route::get('/home/{date}','HomeController@datepicker')->where('date', '[0-9]+');
+Route::get('/home/month/{year}/{month}', 'HomeController@month')->where('yearmonth', '[0-9]+');
+
+Route::get('/home/week/{year}/{month}/{day}','HomeController@week');
+
+Route::get('/home/week','HomeController@week');
+
+Route::get('/home/day','HomeController@day');
+
+Route::get('/home/day/{date}','HomeController@day')->where('date', '[0-9]+');

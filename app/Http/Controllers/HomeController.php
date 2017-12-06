@@ -57,12 +57,20 @@ class HomeController extends Controller
         $next_month_dt = new Carbon($month_first_day -> addMonth(2));
 
         $month_first_day -> subMonth();
-        return view('home',compact('date','dt','month_first_day','back_month_dt','next_month_dt'));
+        return view('month',compact('date','dt','month_first_day','back_month_dt','next_month_dt'));
     }
 
-    public function calendar(Request $request) {
-        $year = $request -> year;
-        $month = $request -> month;
+    public function month(Request $request) {
+
+        $todayDate = Carbon::now();
+
+        if ($request -> year and $request -> month) {
+            $year = $request -> year;
+            $month = $request -> month;
+        } else {
+            $year = $todayDate -> year;
+            $month = $todayDate -> month;
+        }
 
        // 月始まりの日
         $month_first_day = new Carbon($year . '-' . $month . '-01');
@@ -91,16 +99,23 @@ class HomeController extends Controller
         $back_month_dt = new Carbon($month_first_day -> subMonth());
         $next_month_dt = new Carbon($month_first_day -> addMonth(2));
 
-        $dt = Carbon::now();
-
         $month_first_day -> subMonth();
-        return view('home',compact('date','dt','month_first_day','back_month_dt','next_month_dt'));
+        return view('month',compact('date','todayDate','month_first_day','back_month_dt','next_month_dt'));
     }
 
-    public function datepicker(Request $request) {
-        $year = substr($request->date,0,4);
-        $month = substr($request->date,4,2);
-        $day = substr($request->date,6,2);
+    public function day(Request $request) {
+       
+        $todayDate = Carbon::now();
+
+        if ($request -> date) {
+            $year = substr($request->date,0,4);
+            $month = substr($request->date,4,2);
+            $day = substr($request->date,6,2);
+        } else {
+            $year = $todayDate -> year;
+            $month = $todayDate -> month;
+            $day = $todayDate -> day; 
+        }
 
         $week = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 
@@ -147,5 +162,42 @@ class HomeController extends Controller
         $weekdisplay = $week[$date->dayOfWeek];
 
         return view('daypick',compact('date','weekdisplay','schedule_data'));
+    }
+
+    public function week (Request $request) {
+
+        $todayDate = Carbon::now();
+
+        if ($request -> year and $request -> month and $request -> day) {
+            $year = $request -> year;
+            $month = $request -> month;
+            $day = $request -> day;
+        } else {
+            $year = $todayDate -> year;
+            $month = $todayDate -> month;
+            $day = $todayDate -> day; 
+        }
+
+        $date = new Carbon($year.'-'.$month.'-'.$day);
+
+        $date_weekly = (int)($date -> dayOfWeek - 1);
+
+        if($date_weekly == -1) {
+            $date_weekly = 6;
+        }
+
+        $date -> subDay($date_weekly);
+
+        $seven_days_after_date = $date -> copy() -> addDay(6);
+
+        $dbname = "k15015kk";
+        $dbname .= "Schedule";
+
+        $database = DB::table($dbname)->select('plan','startTime',"endTime")
+        ->whereBetween('startTime',[$date->year.'-'.$date->month.'-'.$date->day.' 00:00:00',$date->year.'-'.$date->month.'-'.$date->day.' 23:59:00'])
+        ->orWhereBetween('endTime',[$seven_days_after_date -> year .'-'.$seven_days_after_date -> month.'-'.$seven_days_after_date -> day.' 00:00:00',$seven_days_after_date -> month.'-'.$seven_days_after_date -> day.' 23:59:00'])
+        ->get();
+        
+        return view('week');
     }
 }

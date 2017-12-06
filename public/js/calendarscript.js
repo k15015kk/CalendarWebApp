@@ -1,7 +1,7 @@
 $(function () {
     $('.calendar-day').on('click', function () {
         var directory = $(this).attr("id");
-        window.location.href = "/home/" + directory;
+        window.location.href = "/home/day/" + directory;
     });
 });
 
