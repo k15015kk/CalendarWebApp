@@ -289,3 +289,55 @@ div.calendar-day:hover {
 .formTitle {
     font-size: 24px;
 }
+
+.chooseChengeDelete {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px -2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.changeArea {
+    display: block;
+    position: relative;
+    width: 50vw;
+    flex: 1;
+    background: #fff;
+    text-align: center;
+}
+
+.changeArea > p {
+    display: inline-block;
+    position: relative;
+    padding: 8px;
+    color: #000;
+    font-size: 24px;
+}
+
+.deleteArea {
+    display: block;
+    position: relative;
+    width: 50vw;
+    flex: 1;
+    background: #F44336;
+    text-align: center;
+}
+
+.deleteArea > p {
+    display: inline-block;
+    position: relative;
+    padding: 8px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.changeArea:hover,.deleteArea:hover {
+    background: #64FFDA;
+}
+
+.deleteArea:hover > p {
+    color: #000;
+}
