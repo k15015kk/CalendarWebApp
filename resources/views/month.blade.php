@@ -53,12 +53,14 @@
                         @if (($i == 0 and $day > 8) or ($i >= 4 and $day < 15))
                         <div class="calendar-day-nothing"></div>
                         @elseif ($month_first_day -> year == $todayDate -> year and $month_first_day -> month == $todayDate -> month and $todayDate -> day == $day)
-                        <div class="calendar-day calendar-day-today">
+                        <div class="calendar-day calendar-day-today" id="{{str_pad($month_first_day -> year ,4, 0, STR_PAD_LEFT) . str_pad($month_first_day -> month, 2, 0, STR_PAD_LEFT) . str_pad($day, 2, 0, STR_PAD_LEFT)}}">
                             <p class="day today">{{$date[($i * 7) + $j]}}</p>
+                            <p class="data_count">{{$date_count[($i * 7 + $j)]}}</p>
                         </div>
                         @else
                         <div class="calendar-day" id="{{str_pad($month_first_day -> year ,4, 0, STR_PAD_LEFT) . str_pad($month_first_day -> month, 2, 0, STR_PAD_LEFT) . str_pad($day, 2, 0, STR_PAD_LEFT)}}">
                             <p class="day">{{$date[($i * 7) + $j]}}</p>
+                            <p class="data_count">{{$date_count[($i * 7 + $j)]}}</p>
                         </div>
                         @endif
                     @endfor

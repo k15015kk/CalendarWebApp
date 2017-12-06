@@ -13,25 +13,26 @@
         @endif
 
         <div class="scheduleFormArea">
-            <form action="addSchedule" method="post">
+            <form action="changeSchedule" method="post">
                 <div class="addContentArea">
                     <p class="formTitle planTitle">Plan</p>
-                    <input type="text" name="plan" class="form-control"></div>
+                    <input type="text" name="plan" value="{{$plan}}" class="form-control">
                 </div>
 
                 <div class="addContentArea">
                     <p class="formTitle startTitle">Start</p>
-                    <input type="datetime-local" name="start" value="{{$year}}-{{str_pad($month, 2, 0, STR_PAD_LEFT)}}-{{str_pad($day, 2, 0, STR_PAD_LEFT)}}T00:00" class="form-control">
+                    <input type="datetime-local" name="start" value="{{$start}}" class="form-control">
                 </div>
 
                 <div class="addContentArea">
                     <p class="formTitle endTitle">End</p>
-                    <input type="datetime-local" name="end" value="{{$year}}-{{str_pad($month, 2, 0, STR_PAD_LEFT)}}-{{str_pad($day, 2, 0, STR_PAD_LEFT)}}T00:00"class="form-control">
+                    <input type="datetime-local" name="end" value="{{$end}}"  class="form-control">
                 </div>
 
                 <div class="addSubmit">
-                    <input type="submit" value="Add " class="btn btn-primary">
+                    <input type="submit" value="Change" class="btn btn-primary">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="hidden" name="id" value="{{$id}}">
 
                 </div>
             </form>

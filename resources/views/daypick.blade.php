@@ -4,13 +4,13 @@
 <div class="container">
     <div class="chooseArea">
         <div class="backButton">
-            <a href="/home/day/{{$yesterday -> year}}{{str_pad($yesterday -> month, 2, 0, STR_PAD_LEFT)}}{{str_pad($yesterday -> day, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
+            <a href="/home/day/{{$yesterday -> year}}/{{str_pad($yesterday -> month, 2, 0, STR_PAD_LEFT)}}/{{str_pad($yesterday -> day, 2, 0, STR_PAD_LEFT)}} " class="backText">Back</a>
         </div>
         <div class="nowDay">
             <h1 class="nowDayText"> {{$date->year}}/{{str_pad($date->month,2,0,STR_PAD_LEFT)}}/{{str_pad($date->day,2,0,STR_PAD_LEFT)}}/({{$weekdisplay}})</h1>
         </div>
         <div class="nextButton">
-            <a href="/home/day/{{$tomorrow -> year}}{{str_pad($tomorrow -> month, 2, 0, STR_PAD_LEFT)}}{{str_pad($tomorrow -> day, 2, 0, STR_PAD_LEFT)}} " class="nextText">Next</a>
+            <a href="/home/day/{{$tomorrow -> year}}/{{str_pad($tomorrow -> month, 2, 0, STR_PAD_LEFT)}}/{{str_pad($tomorrow -> day, 2, 0, STR_PAD_LEFT)}} " class="nextText">Next</a>
         </div>
     </div>
 

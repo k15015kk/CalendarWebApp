@@ -52,6 +52,10 @@ body {
     color: #000;
 }
 
+.calendar-table {
+    margin-bottom: 144px;
+}
+
 .calendar-header,.calendar-row {
     display: flex;
     flex-direction: row;
@@ -62,7 +66,7 @@ body {
     text-align: center;
     flex: 1;
     height: 24px;
-    background: #A7FFEB;
+    background: #009688;
     margin: 4px;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -76,17 +80,17 @@ body {
 }
 
 .weekday-header {
-    color: #000;
+    color: #fff;
 }
 
 .weekend-header {
-    color: #F44336;
+    color: #FFCDD2;
 }
 
 .calendar-day {
     flex: 1;
     text-align: center;
-    height: 80px;
+    height: auto;
     background: #fff;
     margin: 4px;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -98,11 +102,11 @@ body {
 }
 
 div.calendar-day:hover {
-    background: #A7FFEB;
+    background: #64FFDA;
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-.calendar-day:hover > p
+.calendar-day:hover > p.day
 {
     color: #000;
 }
@@ -125,7 +129,7 @@ div.calendar-day:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 48px;
+    margin-bottom: 80px;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -160,15 +164,11 @@ div.calendar-day:hover {
 .scheduleSTD {
     direction: block;
     position: absolute;
-    background: #BA68C8;
+    background: #009688;
     width: auto;
     margin-left: 16px;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-
-.scheduleSTD:hover {
-    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.4);
-}
-
 
 .planText,.planTime {
     display: inline-block;
@@ -228,9 +228,9 @@ div.calendar-day:hover {
 }
 
 .weekPlanStick {
-    background: #BA68C8;
+    background: #009688;
     margin: 4px;
-    padding: 2px 4px;
+    padding: 2px 8px;
     color: #fff;
     box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -238,8 +238,8 @@ div.calendar-day:hover {
 .addButtonArea {
     display: block;
     position: fixed;
-    bottom: 48px;
-    right: 48px;
+    bottom: 54px;
+    right: 96px;
 }
 
 .addButton {
@@ -305,7 +305,7 @@ div.calendar-day:hover {
     position: relative;
     width: 50vw;
     flex: 1;
-    background: #fff;
+    background: #009688;
     text-align: center;
 }
 
@@ -313,7 +313,7 @@ div.calendar-day:hover {
     display: inline-block;
     position: relative;
     padding: 8px;
-    color: #000;
+    color: #fff;
     font-size: 24px;
 }
 
@@ -338,6 +338,69 @@ div.calendar-day:hover {
     background: #64FFDA;
 }
 
-.deleteArea:hover > p {
+.changeArea:hover > p,.deleteArea:hover > p {
     color: #000;
+}
+
+.threeDaysDate {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    background: #fff;
+    margin-top: 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dateText {
+    font-size: 36px;
+    padding: 8px;
+    margin: 0;
+    margin-left: 16px;
+}
+
+.threeDaysPlanStick {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background: #009688;
+    margin: 8px 4px;
+    padding: 4px;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.threeDaysPlanStick > p {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 4px 16px;
+}
+
+.threeDaysdisplayContent {
+    display: block;
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+.threeDaysDate:hover {
+    background: #64FFDA;
+}
+
+.data_count {
+    display: block;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    margin: auto;
+    margin-bottom: 8px;
+    border-radius: 18px;
+    background: #F44336;
+    color: #fff;
+    font-size: 18px;
+    line-height: 36px;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
