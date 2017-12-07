@@ -297,8 +297,8 @@ class HomeController extends Controller
         $start = new Carbon($database[0] -> startTime);
         $end = new Carbon ($database[0] -> endTime);
 
-        $start = $start -> format('Y-m-d'.'\T'.'G:i');
-        $end = $end -> format('Y-m-d'.'\T'.'G:i');
+        $start = $start -> format('Y-m-d'.'\T'.'H:i');
+        $end = $end -> format('Y-m-d'.'\T'.'H:i');
 
         return view('change',compact('flag','plan','start','end','id'));
     }

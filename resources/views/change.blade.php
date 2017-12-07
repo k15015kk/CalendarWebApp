@@ -3,7 +3,7 @@
 @section ('content')
     <div class="container">
         <div class="formTitileArea">
-            <h1 class="addPageTitle">Add Schedule</h1>
+            <h1 class="addPageTitle">Change Schedule</h1>
         </div>
 
         @if ($flag)
