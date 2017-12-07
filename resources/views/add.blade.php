@@ -13,7 +13,7 @@
         @endif
 
         <div class="scheduleFormArea">
-            <form action="addSchedule" method="post">
+            <form action="/home/addSchedule" method="post">
                 <div class="addContentArea">
                     <p class="formTitle planTitle">Plan</p>
                     <input type="text" name="plan" class="form-control"></div>

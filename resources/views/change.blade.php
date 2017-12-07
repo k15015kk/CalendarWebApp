@@ -13,7 +13,7 @@
         @endif
 
         <div class="scheduleFormArea">
-            <form action="changeSchedule" method="post">
+            <form action="/home/changeSchedule" method="post">
                 <div class="addContentArea">
                     <p class="formTitle planTitle">Plan</p>
                     <input type="text" name="plan" value="{{$plan}}" class="form-control">
